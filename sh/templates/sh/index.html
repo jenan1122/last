@@ -1,0 +1,20 @@
+{% extends "sh/layout.html" %}
+
+{% block body %}
+<h1> view products</h1>
+<ul>
+    {% for Product in products %}
+    <li>
+        {{Product.name}} :{{Product.price}} $
+    </li>
+    {% empty %}
+    <li>
+        No products available
+    </li>
+    {% endfor %}
+</ul>
+<h3>Total Price: {{ total }} SAR</h3>
+
+<a href="{% url 'sh:add' %}">Add Product</a>
+<a href="{% url 'sh:expense' %}">Expensive Products</a>
+{% endblock %}
